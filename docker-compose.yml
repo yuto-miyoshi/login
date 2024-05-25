@@ -11,13 +11,18 @@ services:
       - database
 
   database:
+    restart: always
     container_name: "database-container"
     build: ./database
+    environment:
+      POSTGRES_USER: "root"
+      POSTGRES_PASSWORD: "root"
+      POSTGRES_DB: "dev"
     ports:
-      - 9300:9300
+      - 5432:5432
     volumes:
       - dbvol:/var/lib/postgresql/data
-      - ./forDocker/db/initdb:/docker-entrypoint-initdb.d
+      - ./database/forDocker/db/initdb:/docker-entrypoint-initdb.d
 
 
 volumes:
