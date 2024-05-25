@@ -1,8 +1,24 @@
 version: '3'
 
+
 services:
   backend:
     container_name: "backend-container"
     build: ./backend
     ports:
       - 8080:8080
+    depends_on:
+      - database
+
+  database:
+    container_name: "database-container"
+    build: ./database
+    ports:
+      - 9300:9300
+    volumes:
+      - dbvol:/var/lib/postgresql/data
+      - ./forDocker/db/initdb:/docker-entrypoint-initdb.d
+
+
+volumes:
+  dbvol:
