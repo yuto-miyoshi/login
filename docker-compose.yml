@@ -14,8 +14,12 @@ services:
     restart: always
     container_name: "database-container"
     build: ./database
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: dev
     ports:
-      - 8081:8081
+      - 5432:5432
     volumes:
       - dbvol:/var/lib/postgresql/data
       - ./database/forDocker/db/initdb:/docker-entrypoint-initdb.d
