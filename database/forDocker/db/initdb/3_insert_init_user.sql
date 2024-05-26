@@ -1,7 +1,7 @@
 INSERT INTO users (
   mail,
-  pass_word
+  password
 ) values ( 
   'seanayuto0826@gmail.com',
-  'password'
+  'helloworld'
 );
