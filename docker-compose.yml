@@ -15,7 +15,7 @@ services:
     container_name: "database-container"
     build: ./database
     ports:
-      - 5432:5432
+      - 8081:8081
     volumes:
       - dbvol:/var/lib/postgresql/data
       - ./database/forDocker/db/initdb:/docker-entrypoint-initdb.d
