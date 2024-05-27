@@ -1,7 +1,8 @@
 /* ログイン情報 */
-CREATE TABLE login (
-  users_id INTEGER REFERENCES users(id),
-  login_date DATE NOT NULL,
+CREATE TABLE login_time (
+  id SERIAL,
+  user_id INTEGER REFERENCES users(id),
+  login_time timestamp NOT NULL,
 
-  PRIMARY KEY (users_id, login_date)
+  PRIMARY KEY (id)
 );

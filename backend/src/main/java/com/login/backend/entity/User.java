@@ -1,10 +1,13 @@
 package com.login.backend.entity;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,10 +25,9 @@ public class User {
     @Column(length = 255, nullable = true)
     private String password;
 
-    // public User(String mail, String password) {
-    //     this.mail = mail;
-    //     this.password = password;
-    // }
+    @OneToMany(mappedBy="user")
+    @Column(nullable=true)
+    private List<LoginTime> loginTimes;
 
     public String getMail() {
         return this.mail;
@@ -41,6 +43,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<LoginTime> getLoginTimes() {
+        return this.loginTimes;
+    }
+
+    public void setLoginTimes(List<LoginTime> loginTimes) {
+        this.loginTimes = loginTimes;
     }
     
 }
