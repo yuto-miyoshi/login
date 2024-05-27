@@ -16,6 +16,10 @@ services:
     build: ./database
     ports:
       - 5432:5432
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: dev
     volumes:
       - dbvol:/var/lib/postgresql/data
       - ./database/forDocker/db/initdb:/docker-entrypoint-initdb.d
