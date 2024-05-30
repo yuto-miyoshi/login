@@ -21,7 +21,8 @@ public class LoginController {
 
     @Autowired
     LoginTimeRepository loginTimeRepository;
-    
+
+    // データベース接続のテスト
     @GetMapping("/test0")
     public String test0() {
         List<User> users = userRepository.findAll();
@@ -32,6 +33,7 @@ public class LoginController {
         return message;
     }
 
+    // データベース接続のテスト
     @GetMapping("/test1")
     public String test1() {
         List<LoginTime> times = loginTimeRepository.findAll();
@@ -40,6 +42,6 @@ public class LoginController {
             message += time.getUser().getMail() + "\n" + time.getLoginTime();
         }
         return message;
-    }
+    }    
     
 }

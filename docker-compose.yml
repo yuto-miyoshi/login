@@ -24,6 +24,8 @@ services:
       - dbvol:/var/lib/postgresql/data
       - ./database/forDocker/db/initdb:/docker-entrypoint-initdb.d
 
+# volumes:これ正しく設定できてる？
+
 
 volumes:
   dbvol:
