@@ -20,10 +20,19 @@ export class PasswordInputComponent {
 
   @Input() title = PasswordInputDefaultConst.title;
 
+  /**
+   * Execute when charactor entered
+   */
   @Input() actionInput: ActionSignature = PasswordInputDefaultConst.actionInput;
 
+  /**
+   * Execute when <input> element attracts attentions
+   */
   @Input() actionFocus: ActionSignature = PasswordInputDefaultConst.actionFocus;
 
+  /**
+   * Execute when <input> element dropped from attentions
+   */
   @Input() actionBlur: ActionSignature = PasswordInputDefaultConst.actionBlur;
 
   /**

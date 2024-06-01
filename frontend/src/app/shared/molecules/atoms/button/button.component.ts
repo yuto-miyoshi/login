@@ -11,6 +11,9 @@ import { ActionSignature } from '../../../application-signature/action-signature
 export class ButtonComponent {
   @Input() message = ButtonDefaultConst.message;
 
+  /**
+   * Execute when button is clicked
+   */
   @Input() actionClick: ActionSignature = ButtonDefaultConst.actionClick;
 
   onClick(): void {

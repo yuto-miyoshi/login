@@ -18,10 +18,19 @@ export class TextInputComponent {
 
   @Input() title = TextInputDefaultConst.title;
 
+  /**
+   * Execute when charactor entered
+   */
   @Input() actionInput: ActionSignature = TextInputDefaultConst.actionInput;
 
+  /**
+   * Execute when <input> element attracts attentions
+   */
   @Input() actionFocus: ActionSignature = TextInputDefaultConst.actionFocus;
 
+  /**
+   * Execute when <input> element dropped from attentions
+   */
   @Input() actionBlur: ActionSignature = TextInputDefaultConst.actionBlur;
 
   /**
