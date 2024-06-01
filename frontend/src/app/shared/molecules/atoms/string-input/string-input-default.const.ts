@@ -1,5 +1,5 @@
 export namespace StringInputDefaultConst {
-    export const value = '';
+    export const str = '';
 
     export const actionInput = () => {};
 

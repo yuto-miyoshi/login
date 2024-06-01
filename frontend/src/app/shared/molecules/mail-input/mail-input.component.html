@@ -1,5 +1,10 @@
-<div class="title" [class.non-display]="!isFocused">Mail</div>
+<div class="title" [class.display]="isFocused">Mail</div>
 
-<div class="wrap">
-    <input app-string-input type="text" [actionFocus]="actionFocusChange" [actionBlur]="actionFocusChange"/>
+<div class="wrap" [class.wrap-focused]="isFocused">
+  <app-string-input
+    type="text"
+    [str]="str"
+    [actionFocus]="actionFocusChange"
+    [actionBlur]="actionFocusChange"
+  />
 </div>

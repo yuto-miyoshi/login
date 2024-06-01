@@ -6,7 +6,7 @@ import { StringInputDefaultConst } from "./string-input-default.const";
     standalone: true,
 })
 export class StringInputDirective {
-    @Input() value = StringInputDefaultConst.value;
+    @Input() value = StringInputDefaultConst.str;
 
     @Input() actionInput: () => void = StringInputDefaultConst.actionInput;
 

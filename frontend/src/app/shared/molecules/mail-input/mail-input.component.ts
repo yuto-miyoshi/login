@@ -1,14 +1,19 @@
-import { Component } from "@angular/core";
-import { StringInputDirective } from "../atoms/string-input/string-input.directive";
+import { Component, Input } from "@angular/core";
+import { StringInputComponent } from "../atoms/string-input/string-input.component";
 
 @Component({
     selector: 'app-mail-input',
     standalone: true,
-    imports: [StringInputDirective],
+    imports: [StringInputComponent],
     templateUrl: './mail-input.component.html',
     styleUrl: './mail-input.component.scss',
 })
 export class MailInputComponent {
+    /**
+     * Input string
+     */
+    @Input() str = '';
+
     /**
      * Focused on Input Form
      */
@@ -19,6 +24,5 @@ export class MailInputComponent {
      */
     actionFocusChange = () => {
         this.isFocused = !this.isFocused;
-        console.log(this.isFocused)
     }
 }

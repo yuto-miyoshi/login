@@ -1,12 +1,8 @@
 :host {
     /** self skeleton */
     position: relative;
-    height: 60px;
-    width: 300px;
-
-    /** self design */
-    border: 1px black solid;
-    background-color: pink;
+    width: 240px;
+    height: 50px;
 
     /** child skeleton */
     display: flex;
@@ -24,10 +20,12 @@
 
     /** self design */
     background-color: white;
+    opacity: 0;
 }
 
-.non-display {
-    display: none;
+.display {
+    /** self design */
+    opacity: 1;
 }
 
 .wrap {
@@ -56,13 +54,13 @@
     }
 }
 
-.wrap:focus-within {
+.wrap-focused {
     /** self design */
     border-width: 2px;
 
     animation-name: border-blinking;
     animation-iteration-count: infinite;
-    animation-duration: 2s;
+    animation-duration: 1.5s;
 }
 
 @keyframes border-blinking {
@@ -71,7 +69,7 @@
     }
     
     50% {
-        border-color: rgba(128, 128, 128, 0)
+        border-color: rgba(128, 128, 128, 0.1)
     }
 
     100% {

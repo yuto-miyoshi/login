@@ -1,14 +1,16 @@
 import { Component, Input } from "@angular/core";
 import { StringInputDefaultConst } from "./string-input-default.const";
+import { FormsModule } from "@angular/forms";
 
 @Component({
     selector: 'app-string-input',
     standalone: true,
+    imports: [FormsModule],
     templateUrl: './string-input.component.html',
     styleUrl: './string-input.component.scss',
 })
 export class StringInputComponent {
-    @Input() value = StringInputDefaultConst.value;
+    @Input() str = StringInputDefaultConst.str;
 
     @Input() actionInput: () => void = StringInputDefaultConst.actionInput;
 
