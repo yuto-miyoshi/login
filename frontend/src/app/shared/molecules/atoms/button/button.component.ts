@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ButtonDefaultConst } from './button-default.const';
+import { ActionSignature } from '../../../application-signature/action-signature.interface';
 
 @Component({
   selector: 'app-button',
@@ -10,7 +11,7 @@ import { ButtonDefaultConst } from './button-default.const';
 export class ButtonComponent {
   @Input() message = ButtonDefaultConst.message;
 
-  @Input() actionClick = ButtonDefaultConst.actionClick;
+  @Input() actionClick: ActionSignature = ButtonDefaultConst.actionClick;
 
   onClick(): void {
     this.actionClick();

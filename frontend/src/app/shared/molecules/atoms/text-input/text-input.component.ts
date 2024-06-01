@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TextInputDefaultConst } from './text-input-default.const';
+import { ActionSignature } from '../../../application-signature/action-signature.interface';
 
 @Component({
   selector: 'app-text-input',
@@ -17,11 +18,11 @@ export class TextInputComponent {
 
   @Input() title = TextInputDefaultConst.title;
 
-  @Input() actionInput = TextInputDefaultConst.actionInput;
+  @Input() actionInput: ActionSignature = TextInputDefaultConst.actionInput;
 
-  @Input() actionFocus = TextInputDefaultConst.actionFocus;
+  @Input() actionFocus: ActionSignature = TextInputDefaultConst.actionFocus;
 
-  @Input() actionBlur = TextInputDefaultConst.actionBlur;
+  @Input() actionBlur: ActionSignature = TextInputDefaultConst.actionBlur;
 
   /**
    * Focused on Input Form

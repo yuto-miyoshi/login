@@ -3,6 +3,7 @@ import { PasswordInputDefaultConst } from './password-input-default.const';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
+import { ActionSignature } from '../../../application-signature/action-signature.interface';
 
 @Component({
   selector: 'app-password-input',
@@ -19,11 +20,11 @@ export class PasswordInputComponent {
 
   @Input() title = PasswordInputDefaultConst.title;
 
-  @Input() actionInput = PasswordInputDefaultConst.actionInput;
+  @Input() actionInput: ActionSignature = PasswordInputDefaultConst.actionInput;
 
-  @Input() actionFocus = PasswordInputDefaultConst.actionFocus;
+  @Input() actionFocus: ActionSignature = PasswordInputDefaultConst.actionFocus;
 
-  @Input() actionBlur = PasswordInputDefaultConst.actionBlur;
+  @Input() actionBlur: ActionSignature = PasswordInputDefaultConst.actionBlur;
 
   /**
    * Focused on Input Form
