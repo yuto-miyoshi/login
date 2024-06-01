@@ -1,5 +1,7 @@
-export namespace ButtonDefaultConst {
-  export const message = '';
+import { ActionSignature } from '../../../application-signature/action-signature.interface';
 
-  export const actionClick = () => {};
+export namespace ButtonDefaultConst {
+  export const message = 'PUSH';
+
+  export const actionClick: ActionSignature = () => {};
 }
