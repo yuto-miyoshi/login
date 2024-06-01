@@ -1,0 +1,72 @@
+:host {
+    /** self skeleton */
+    position: relative;
+    width: 240px;
+    height: 50px;
+
+    /** child skeleton */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.title {
+    /** self skeleton */
+    position: absolute;
+    top: 0;
+    margin-left: 3%;
+    padding: 0 2%;
+    width: fit-content;
+
+    /** self design */
+    background-color: white;
+}
+
+.wrap {
+    /** self skeleton */
+    width: 100%;
+    height: 75%;
+
+    /** self design */
+    border: 2px rgb(128, 128, 128, 1) solid;
+    border-radius: 6px;
+    background-color: white;
+
+    /** child skeleton */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    /** child */
+    > input {
+        /** self skeleton */
+        width: 100%;
+        padding: 0 3%;
+
+        /** self design */
+        font-size: 1.3rem;
+    }
+}
+
+.wrap-focused {
+    /** self design */
+    border-width: 2px;
+
+    animation-name: border-blinking;
+    animation-iteration-count: infinite;
+    animation-duration: 1.5s;
+}
+
+@keyframes border-blinking {
+    0% {
+        border-color: rgba(128, 128, 128, 1);
+    }
+    
+    50% {
+        border-color: rgba(128, 128, 128, 0.1)
+    }
+
+    100% {
+        border-color: rgba(128, 128, 128, 1)
+    }
+}

@@ -1,0 +1,11 @@
+<div class="title">{{ title }}</div>
+
+<div class="wrap" [class.wrap-focused]="isFocused">
+  <input
+    type="text"
+    [(ngModel)]="text"
+    (input)="onInput()"
+    (focus)="onFocus()"
+    (blur)="onBlur()"
+  />
+</div>
