@@ -10,7 +10,19 @@ export class StringInputDirective {
 
     @Input() actionInput: () => void = StringInputDefaultConst.actionInput;
 
+    @Input() actionFocus: () => void = StringInputDefaultConst.actionFocus;
+
+    @Input() actionBlur: () => void = StringInputDefaultConst.actionBlur;
+
     onInput(): void {
         this.actionInput();
+    }
+
+    onFocus(): void {
+        this.actionFocus();
+    }
+
+    onBlur(): void {
+        this.actionBlur();
     }
 }
