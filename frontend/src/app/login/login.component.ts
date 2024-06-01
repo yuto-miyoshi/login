@@ -1,10 +1,10 @@
 import { Component } from "@angular/core";
-import { MailInputComponent } from "../shared/molecules/mail-input/mail-input.component";
+import { TextInputComponent } from "../shared/molecules/atoms/text-input/text-input.component";
 
 @Component({
     selector: 'app-login',
     standalone: true,
-    imports: [MailInputComponent],
+    imports: [TextInputComponent],
     templateUrl: './login.component.html',
     styleUrl: './login.component.scss'
 })
