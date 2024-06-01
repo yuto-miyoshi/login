@@ -1,16 +1,18 @@
-import { Directive, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ButtonDefaultConst } from './button-default.const';
 
-@Directive({
-  selector: '[app-button]',
+@Component({
+  selector: 'app-button',
   standalone: true,
+  templateUrl: './button.component.html',
+  styleUrl: './button.component.scss',
 })
-export class ButtonDirective {
+export class ButtonComponent {
   @Input() message = ButtonDefaultConst.message;
 
-  @Input() action: () => void = ButtonDefaultConst.action;
+  @Input() actionClick = ButtonDefaultConst.actionClick;
 
   onClick(): void {
-    this.action();
+    this.actionClick();
   }
 }
