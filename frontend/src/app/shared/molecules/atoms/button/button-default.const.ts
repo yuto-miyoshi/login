@@ -1,5 +1,5 @@
 export namespace ButtonDefaultConst {
-    export const message = '';
+  export const message = '';
 
-    export const action = () => {};
+  export const action = () => {};
 }

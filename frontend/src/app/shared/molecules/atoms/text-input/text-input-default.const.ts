@@ -1,11 +1,11 @@
 export namespace TextInputDefaultConst {
-    export const text = '';
+  export const text = '';
 
-    export const title = '';
+  export const title = '';
 
-    export const actionInput = () => {};
+  export const actionInput = () => {};
 
-    export const actionFocus = () => {};
+  export const actionFocus = () => {};
 
-    export const actionBlur = () => {};
+  export const actionBlur = () => {};
 }
