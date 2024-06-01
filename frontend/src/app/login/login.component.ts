@@ -1,10 +1,10 @@
 import { Component } from "@angular/core";
-import { TextInputComponent } from "../shared/molecules/atoms/text-input/text-input.component";
+import { PasswordInputComponent } from "../shared/molecules/atoms/password-input/password-input.component";
 
 @Component({
     selector: 'app-login',
     standalone: true,
-    imports: [TextInputComponent],
+    imports: [PasswordInputComponent],
     templateUrl: './login.component.html',
     styleUrl: './login.component.scss'
 })
