@@ -1,0 +1,20 @@
+button {
+  /** self skeleton */
+  width: 100px;
+  height: 40px;
+
+  /** self design */
+  border: 2px rgba(128, 128, 128, 1) solid;
+  border-radius: 4px;
+  background-color: transparent;
+  color: rgba(64, 64, 64, 1);
+
+  transition: 0.5s;
+}
+
+button:hover {
+  /** self design */
+  border: 2px rgba(128, 128, 128, 0.5) solid;
+  color: rgba(64, 64, 64, 0.5);
+  cursor: pointer;
+}
