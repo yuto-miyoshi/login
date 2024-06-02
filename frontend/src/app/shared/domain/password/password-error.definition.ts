@@ -34,16 +34,31 @@ export const passwordErrorDefinitionDictonary: ErrorDefinition<
     message: `Password is required to be ${PasswordDomainConst.maxLength} or less.`,
   },
   {
-    code: 3,
+    code: PasswordErrorCode.forbiddenCharacter,
     logic: (password: string) =>
       !PasswordDomainConst.alphNumberOnlyPattern.test(password),
     message: 'Password can only include alphabet [a-zA-Z] and number[0-9].',
   },
   {
-    code: 4,
+    code: PasswordErrorCode.atLeastOneAlphOneNumber,
     logic: (password: string) =>
       !PasswordDomainConst.atLeastOneAlphOneNumberPattern.test(password),
     message:
       'Password is required to include at least one alphabet and one number.',
   },
+  {
+    code: PasswordErrorCode.mismatch,
+    /**
+     * Required to overwrite logic
+     * to inject other words for comparison.
+     * Use generatePasswordMismatchLogic()
+     */
+    // XXX: DENGEROUS! Improve! It cannot ensure safety call.
+    logic: (_: string) => false,
+    message: 'Passwords are not matched.',
+  },
 ] as const;
+
+export const generatePasswordMismatchLogic = (password0: string) => {
+  (password1: string) => password0 === password1;
+};

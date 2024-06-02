@@ -2,6 +2,9 @@ import { ValueCheck } from '../../value-security/value-check';
 import { ErrorDefinition } from '../error.interface';
 
 /**
+ * error detection agent implements with "builder pattern"
+ * you must call start() before filtering
+ * you must call stop() after filtering for initializing
  * @type T: error code enum
  * @type S: target value type
  */
@@ -10,6 +13,10 @@ export class ErrorDetector<T, S> {
 
   private value: S | undefined = undefined;
 
+  /**
+   * @param defList error definition describing error code, error judge logic and error message
+   * @param noErrorCode error code when no error defined in defList
+   */
   constructor(
     private readonly defList: ErrorDefinition<T, S>[],
     private readonly noErrorCode: T,
@@ -23,26 +30,40 @@ export class ErrorDetector<T, S> {
     return this;
   }
 
-  filter(errorCode: T): this {
+  /**
+   * construct single error check "net"
+   * error should be forgiven when already detecting heavier error
+   * (in other words, field "currentStatus" is not noErrorCode)
+   * @param errorCode Error kind for judge
+   * @param pluginLogic Priority apply ignoring defList logic (pseudo overwrite)
+   * @returns detector after judge
+   */
+  filter(errorCode: T, pluginLogic?: (value: S) => boolean): this {
     if (ValueCheck.isUndefined(this.value)) {
       // TODO: assert
       return this;
     }
+
     if (this.currentStatus !== this.noErrorCode) {
       return this;
     }
 
-    const def = this.defList.find(
-      (def: ErrorDefinition<T, S>) => def.code === errorCode,
-    );
+    let logic = pluginLogic;
+    if (ValueCheck.isUndefined(logic)) {
+      const def = this.defList.find(
+        (def: ErrorDefinition<T, S>) => def.code === errorCode,
+      );
 
-    if (ValueCheck.isUndefined(def)) {
-      // TODO: Assert
-      return this;
+      if (ValueCheck.isUndefined(def)) {
+        // TODO: Assert
+        return this;
+      }
+
+      logic = def.logic;
     }
 
-    if (def.logic(this.value)) {
-      this.currentStatus = def.code;
+    if (logic(this.value)) {
+      this.currentStatus = errorCode;
     }
 
     return this;
