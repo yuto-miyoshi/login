@@ -54,23 +54,6 @@ export class PasswordErrorComponent {
    */
   private currentStatus: PasswordErrorCode = PasswordErrorCode.noError;
 
-  onInput = () => {
-    /**
-     * When input, error is always rejudged.
-     * Action from the parent component is executed at final.
-     */
-    this.currentStatus = this.errorJudge();
-    this.actionInput();
-  };
-
-  onFocus = () => {
-    this.actionFocus();
-  };
-
-  onBlur = () => {
-    this.actionBlur();
-  };
-
   get isError(): boolean {
     return this.currentStatus !== PasswordErrorCode.noError;
   }
@@ -87,4 +70,21 @@ export class PasswordErrorComponent {
 
     return errorDef.message;
   }
+
+  onInput = () => {
+    /**
+     * When input, error is always rejudged.
+     * Action from the parent component is executed at final.
+     */
+    this.currentStatus = this.errorJudge();
+    this.actionInput();
+  };
+
+  onFocus = () => {
+    this.actionFocus();
+  };
+
+  onBlur = () => {
+    this.actionBlur();
+  };
 }
