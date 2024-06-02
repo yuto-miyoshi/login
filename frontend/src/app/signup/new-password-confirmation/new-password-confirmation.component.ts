@@ -30,7 +30,6 @@ export class NewPasswordConfirmationComponent {
   errorDetectorConfirm = new ErrorDetector(defList, Code.noError);
 
   onJudgeError = () => {
-    console.log(this.password);
     return this.errorDetector
       .start(this.password.text)
       .filter(Code.tooShort)
