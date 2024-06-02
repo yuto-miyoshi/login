@@ -7,7 +7,6 @@ import {
   PasswordErrorCode,
   passwordErrorDefinitionDictonary,
 } from '../../definition/password/password-error.definition';
-import { ErrorDefinition } from '../../application-interface/error.interface';
 import { ValueCheck } from '../../application-security/value-check';
 
 @Component({

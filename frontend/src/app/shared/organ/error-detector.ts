@@ -1,5 +1,5 @@
 import { ValueCheck } from '../application-security/value-check';
-import { ErrorDefinition } from '../application-interface/error.interface';
+import { ErrorDefinition } from '../domain-interface/error.interface';
 
 /**
  * @type T: error code enum
