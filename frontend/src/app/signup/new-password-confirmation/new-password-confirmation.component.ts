@@ -7,7 +7,7 @@ import {
   passwordErrorDefinitionDictonary as defList,
   generatePasswordMismatchLogic,
 } from '../../shared/domain/password/password-error.definition';
-import { StringData } from '../../shared/application/string-data';
+import { StringData } from '../../shared/domain/string-data.interface';
 import { JudgeReactionSignature } from '../../shared/application/judge-reaction.signature';
 
 @Component({

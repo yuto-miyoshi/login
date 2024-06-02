@@ -8,7 +8,7 @@ import {
 } from '../../domain/password/password-error.definition';
 import { ValueCheck } from '../../value-security/value-check';
 import { PasswordErrorJudgeSignature } from '../../application/error-judge.signature';
-import { StringData } from '../../application/string-data';
+import { StringData } from '../../domain/string-data.interface';
 import { JudgeReactionSignature } from '../../application/judge-reaction.signature';
 
 @Component({

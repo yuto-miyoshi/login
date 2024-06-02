@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { ActionSignature } from '../../../application/action.signature';
-import { StringData } from '../../../application/string-data';
+import { StringData } from '../../../domain/string-data.interface';
 
 @Component({
   selector: 'app-password-input',
