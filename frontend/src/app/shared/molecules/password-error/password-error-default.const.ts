@@ -9,7 +9,7 @@ export namespace PasswordErrorDefaultConst {
 
   export const actionInvalid = () => {};
 
-  export const validationAdditional = (password: string) => true;
+  export const validationFlow = (password: string) => true;
 
   export const errorMessage = '';
 }

@@ -3,6 +3,12 @@ import { PasswordInputComponent } from '../atoms/password-input/password-input.c
 import { ActionSignature } from '../../application-signature/action-signature.interface';
 import { PasswordErrorDefaultConst } from './password-error-default.const';
 import { StringValidationSignature } from '../../application-signature/string-validation-signature.interface';
+import {
+  PasswordErrorCode,
+  passwordErrorDefinitionDictonary,
+} from '../../definition/password/password-error.definition';
+import { ErrorDefinition } from '../../application-signature/error-definition.interface';
+import { ValueCheck } from '../../application-security/value-check';
 
 @Component({
   selector: 'app-password-error',
@@ -14,23 +20,31 @@ import { StringValidationSignature } from '../../application-signature/string-va
 export class PasswordErrorComponent {
   @Input() password = PasswordErrorDefaultConst.password;
 
+  /**
+   * Execute when charactor entered
+   */
   @Input() actionInput: ActionSignature = PasswordErrorDefaultConst.actionInput;
 
+  /**
+   * Execute when <input> element attracts attentions
+   */
   @Input() actionFocus: ActionSignature = PasswordErrorDefaultConst.actionFocus;
 
+  /**
+   * Execute when <input> element dropped from attentions
+   */
   @Input() actionBlur: ActionSignature = PasswordErrorDefaultConst.actionBlur;
 
   @Input() actionInvalid: ActionSignature =
     PasswordErrorDefaultConst.actionInvalid;
 
-  @Input() validationAdditional: StringValidationSignature =
-    PasswordErrorDefaultConst.validationAdditional;
+  @Input() validationFlow: StringValidationSignature =
+    PasswordErrorDefaultConst.validationFlow;
 
-  errorMessage = PasswordErrorDefaultConst.errorMessage;
+  errorCode = PasswordErrorCode.noError;
 
   /**
    * When input, error is always rejudged.
-   * After that, additional Validation from the parent component is executed.
    * Action from the parent component is executed at final.
    */
   onInput = () => {};
@@ -43,11 +57,22 @@ export class PasswordErrorComponent {
     this.actionBlur();
   };
 
-  /**
-   * Error is judged here on the component
-   * perfectly to sync with judge and the message.
-   */
+  // TODO: use enum
   get isError(): boolean {
-    return this.errorMessage.length > 0;
+    return this.errorCode !== PasswordErrorCode.noError;
+  }
+
+  // TODO: use dictionary
+  get errorMessage(): string {
+    const errorDef = passwordErrorDefinitionDictonary.find(
+      (def) => def.code === this.errorCode,
+    );
+
+    if (ValueCheck.isUndefined(errorDef)) {
+      // TODO: assert
+      return PasswordErrorDefaultConst.errorMessage;
+    }
+
+    return errorDef.message;
   }
 }
