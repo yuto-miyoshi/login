@@ -18,7 +18,7 @@ export class ErrorDetector<T, S> {
    * @param noErrorCode error code when no error defined in defList
    */
   constructor(
-    private readonly defList: ErrorDefinition<T, S>[],
+    private readonly defList: readonly ErrorDefinition<T, S>[],
     private readonly noErrorCode: T,
   ) {
     this.currentStatus = noErrorCode;
