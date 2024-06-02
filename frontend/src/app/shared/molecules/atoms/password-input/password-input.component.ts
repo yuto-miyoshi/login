@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { ActionSignature } from '../../../application/action.signature';
-import { PasswordData } from '../../../application/password-data';
+import { StringData } from '../../../application/string-data';
 
 @Component({
   selector: 'app-password-input',
@@ -17,7 +17,7 @@ export class PasswordInputComponent {
   /**
    * Input target
    */
-  @Input() password: PasswordData = PasswordInputDefaultConst.password;
+  @Input() password: StringData = PasswordInputDefaultConst.password;
 
   @Input() title = PasswordInputDefaultConst.title;
 

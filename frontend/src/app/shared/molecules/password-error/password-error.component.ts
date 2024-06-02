@@ -8,7 +8,7 @@ import {
 } from '../../domain/password/password-error.definition';
 import { ValueCheck } from '../../value-security/value-check';
 import { PasswordErrorJudgeSignature } from '../../application/error-judge.signature';
-import { PasswordData } from '../../application/password-data';
+import { StringData } from '../../application/string-data';
 import { JudgeReactionSignature } from '../../application/judge-reaction.signature';
 
 @Component({
@@ -22,7 +22,7 @@ export class PasswordErrorComponent {
   /**
    * Input target
    */
-  @Input() password: PasswordData = PasswordErrorDefaultConst.password;
+  @Input() password: StringData = PasswordErrorDefaultConst.password;
 
   /**
    * Execute when charactor entered

@@ -7,7 +7,7 @@ import {
   passwordErrorDefinitionDictonary as defList,
   generatePasswordMismatchLogic,
 } from '../../shared/domain/password/password-error.definition';
-import { PasswordData } from '../../shared/application/password-data';
+import { StringData } from '../../shared/application/string-data';
 import { JudgeReactionSignature } from '../../shared/application/judge-reaction.signature';
 
 @Component({
@@ -18,13 +18,12 @@ import { JudgeReactionSignature } from '../../shared/application/judge-reaction.
   styleUrl: './new-password-confirmation.component.scss',
 })
 export class NewPasswordConfirmationComponent {
-  @Input() password: PasswordData =
-    NewPasswordConfirmationDefaultConst.password;
+  @Input() password: StringData = NewPasswordConfirmationDefaultConst.password;
 
   @Input() actionIfError: JudgeReactionSignature =
     NewPasswordConfirmationDefaultConst.actionIfError;
 
-  passwordConfirm: PasswordData =
+  passwordConfirm: StringData =
     NewPasswordConfirmationDefaultConst.passwordConfirm;
 
   errorDetector = new ErrorDetector(defList, Code.noError);
