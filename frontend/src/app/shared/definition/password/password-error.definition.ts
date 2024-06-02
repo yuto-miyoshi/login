@@ -1,4 +1,4 @@
-import { ErrorDefinition } from '../../application-signature/error-definition.interface';
+import { ErrorDefinition } from '../../application-interface/error.interface';
 import { PasswordDomainConst } from './password-domain.const';
 
 export const PasswordErrorCode = {

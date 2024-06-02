@@ -1,5 +1,5 @@
 import { ValueCheck } from '../application-security/value-check';
-import { ErrorDefinition } from '../application-signature/error-definition.interface';
+import { ErrorDefinition } from '../application-interface/error.interface';
 
 export class ErrorDetector<T, S> {
   private currentStatus: T;

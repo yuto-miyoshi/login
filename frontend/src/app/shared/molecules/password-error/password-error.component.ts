@@ -1,13 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { PasswordInputComponent } from '../atoms/password-input/password-input.component';
-import { ActionSignature } from '../../application-signature/action-signature.interface';
+import { ActionSignature } from '../../application-interface/action.interface';
 import { PasswordErrorDefaultConst } from './password-error-default.const';
-import { StringValidationSignature } from '../../application-signature/string-validation-signature.interface';
+import { StringValidationSignature } from '../../application-interface/string-validation.interface';
 import {
   PasswordErrorCode,
   passwordErrorDefinitionDictonary,
 } from '../../definition/password/password-error.definition';
-import { ErrorDefinition } from '../../application-signature/error-definition.interface';
+import { ErrorDefinition } from '../../application-interface/error.interface';
 import { ValueCheck } from '../../application-security/value-check';
 
 @Component({
