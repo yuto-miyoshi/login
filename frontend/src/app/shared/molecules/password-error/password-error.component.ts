@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { PasswordInputComponent } from '../atoms/password-input/password-input.component';
 import { ActionSignature } from '../../application/action.interface';
 import { PasswordErrorDefaultConst } from './password-error-default.const';
-import { StringValidationSignature } from '../../application/string-validation.interface';
+import { StringValidationSignature } from '../../domain/string-validation.interface';
 import {
   PasswordErrorCode,
   passwordErrorDefinitionDictonary,
