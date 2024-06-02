@@ -13,6 +13,8 @@ import { MailErrorDefaultConst } from './mail-error-default.const';
 export class MailErrorComponent {
   @Input() mail: StringData = MailErrorDefaultConst.mail;
 
+  @Input() title: StringData = MailErrorDefaultConst.title;
+
   get errorMessage(): string {
     // TODO: implements
     return 'dummy';

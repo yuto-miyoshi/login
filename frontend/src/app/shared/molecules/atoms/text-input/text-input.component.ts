@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TextInputDefaultConst } from './text-input-default.const';
 import { ActionSignature } from '../../../application/action.signature';
+import { StringData } from '../../../domain/string-data.interface';
 
 @Component({
   selector: 'app-text-input',
@@ -14,9 +15,9 @@ export class TextInputComponent {
   /**
    * Input target
    */
-  @Input() text = TextInputDefaultConst.text;
+  @Input() text: StringData = TextInputDefaultConst.text;
 
-  @Input() title = TextInputDefaultConst.title;
+  @Input() title: StringData = TextInputDefaultConst.title;
 
   /**
    * Execute when charactor entered

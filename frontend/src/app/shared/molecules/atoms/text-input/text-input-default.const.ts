@@ -1,7 +1,7 @@
 export namespace TextInputDefaultConst {
-  export const text = '';
+  export const text = { text: '' };
 
-  export const title = 'TEXT';
+  export const title = { text: 'TEXT' };
 
   export const actionInput = () => {};
 
