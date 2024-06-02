@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import { PasswordInputComponent } from '../atoms/password-input/password-input.component';
 import { ActionSignature } from '../../application/action.interface';
 import { PasswordErrorDefaultConst } from './password-error-default.const';
-import { StringValidationSignature } from '../../domain/string-validation.interface';
 import {
   PasswordErrorCode,
   passwordErrorDefinitionDictonary,
@@ -17,6 +16,9 @@ import { ValueCheck } from '../../value-security/value-check';
   styleUrl: './password-error.component.scss',
 })
 export class PasswordErrorComponent {
+  /**
+   * Input target
+   */
   @Input() password = PasswordErrorDefaultConst.password;
 
   /**
@@ -34,19 +36,24 @@ export class PasswordErrorComponent {
    */
   @Input() actionBlur: ActionSignature = PasswordErrorDefaultConst.actionBlur;
 
+  /**
+   * Execute when value is invalid
+   */
   @Input() actionInvalid: ActionSignature =
     PasswordErrorDefaultConst.actionInvalid;
 
-  @Input() validationFlow: StringValidationSignature =
-    PasswordErrorDefaultConst.validationFlow;
-
-  errorCode = PasswordErrorCode.noError;
-
   /**
-   * When input, error is always rejudged.
-   * Action from the parent component is executed at final.
+   * current error status
    */
-  onInput = () => {};
+  private currentStatus = PasswordErrorCode.noError;
+
+  onInput = () => {
+    /**
+     * When input, error is always rejudged.
+     * Action from the parent component is executed at final.
+     */
+    // TODO: implements
+  };
 
   onFocus = () => {
     this.actionFocus();
@@ -56,15 +63,13 @@ export class PasswordErrorComponent {
     this.actionBlur();
   };
 
-  // TODO: use enum
   get isError(): boolean {
-    return this.errorCode !== PasswordErrorCode.noError;
+    return this.currentStatus !== PasswordErrorCode.noError;
   }
 
-  // TODO: use dictionary
   get errorMessage(): string {
     const errorDef = passwordErrorDefinitionDictonary.find(
-      (def) => def.code === this.errorCode,
+      (def) => def.code === this.currentStatus,
     );
 
     if (ValueCheck.isUndefined(errorDef)) {
