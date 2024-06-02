@@ -9,6 +9,7 @@ import {
 import { ValueCheck } from '../../value-security/value-check';
 import { PasswordErrorJudgeSignature } from '../../application/error-judge.signature';
 import { PasswordData } from '../../application/password-data';
+import { JudgeReactionSignature } from '../../application/judge-reaction.signature';
 
 @Component({
   selector: 'app-password-error',
@@ -39,10 +40,10 @@ export class PasswordErrorComponent {
   @Input() actionBlur: ActionSignature = PasswordErrorDefaultConst.actionBlur;
 
   /**
-   * Execute when value is invalid
+   * Execute when value is error
    */
-  @Input() actionInvalid: ActionSignature =
-    PasswordErrorDefaultConst.actionInvalid;
+  @Input() actionIfError: JudgeReactionSignature =
+    PasswordErrorDefaultConst.actionIfError;
 
   /**
    * Return error judge
@@ -74,10 +75,12 @@ export class PasswordErrorComponent {
 
   onInput = () => {
     /**
-     * When input, error is always rejudged.
-     * Action from the parent component is executed at final.
+     * first of all, error is judged.
+     * "actionIfError" is executed after judge.
+     * "actionInput" is executed at final.
      */
     this.currentStatus = this.errorJudge();
+    this.actionIfError(this.isError);
     this.actionInput();
   };
 
