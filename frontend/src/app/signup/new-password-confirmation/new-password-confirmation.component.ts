@@ -8,6 +8,7 @@ import {
   generatePasswordMismatchLogic,
 } from '../../shared/domain/password/password-error.definition';
 import { PasswordData } from '../../shared/application/password-data';
+import { JudgeReactionSignature } from '../../shared/application/judge-reaction.signature';
 
 @Component({
   selector: 'app-new-password-confirmation',
@@ -20,7 +21,8 @@ export class NewPasswordConfirmationComponent {
   @Input() password: PasswordData =
     NewPasswordConfirmationDefaultConst.password;
 
-  @Input() actionIfError = () => {};
+  @Input() actionIfError: JudgeReactionSignature =
+    NewPasswordConfirmationDefaultConst.actionIfError;
 
   passwordConfirm: PasswordData =
     NewPasswordConfirmationDefaultConst.passwordConfirm;
@@ -29,9 +31,14 @@ export class NewPasswordConfirmationComponent {
 
   errorDetectorConfirm = new ErrorDetector(defList, Code.noError);
 
+  private isErrorPassword = false;
+
+  private isErrorPasswordConfirm = false;
+
   onJudgeError = () => {
     return this.errorDetector
       .start(this.password.text)
+      .filter(Code.noInput)
       .filter(Code.tooShort)
       .filter(Code.tooLong)
       .filter(Code.forbiddenCharacter)
@@ -45,5 +52,15 @@ export class NewPasswordConfirmationComponent {
       .filter(Code.noInput)
       .filter(Code.mismatch, generatePasswordMismatchLogic(this.password.text))
       .stopWithResult();
+  };
+
+  onActionIfError = (isError: boolean) => {
+    this.isErrorPassword = isError;
+    this.actionIfError(this.isErrorPassword || this.isErrorPasswordConfirm);
+  };
+
+  onActionIfErrorConfirm = (isError: boolean) => {
+    this.isErrorPasswordConfirm = isError;
+    this.actionIfError(this.isErrorPassword || this.isErrorPasswordConfirm);
   };
 }
