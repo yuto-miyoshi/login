@@ -1,12 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { PasswordInputComponent } from '../atoms/password-input/password-input.component';
-import { ActionSignature } from '../../application/action.interface';
+import { ActionSignature } from '../../application/action.signature';
 import { PasswordErrorDefaultConst } from './password-error-default.const';
 import {
   PasswordErrorCode,
   passwordErrorDefinitionDictonary,
 } from '../../domain/password/password-error.definition';
 import { ValueCheck } from '../../value-security/value-check';
+import { PasswordErrorJudgeSignature } from '../../application/error-judge.signature';
 
 @Component({
   selector: 'app-password-error',
@@ -43,16 +44,23 @@ export class PasswordErrorComponent {
     PasswordErrorDefaultConst.actionInvalid;
 
   /**
+   * Return error judge
+   */
+  @Input() errorJudge: PasswordErrorJudgeSignature =
+    PasswordErrorDefaultConst.errorJudge;
+
+  /**
    * current error status
    */
-  private currentStatus = PasswordErrorCode.noError;
+  private currentStatus: PasswordErrorCode = PasswordErrorCode.noError;
 
   onInput = () => {
     /**
      * When input, error is always rejudged.
      * Action from the parent component is executed at final.
      */
-    // TODO: implements
+    this.currentStatus = this.errorJudge();
+    this.actionInput();
   };
 
   onFocus = () => {

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ButtonDefaultConst } from './button-default.const';
-import { ActionSignature } from '../../../application/action.interface';
+import { ActionSignature } from '../../../application/action.signature';
 
 @Component({
   selector: 'app-button',

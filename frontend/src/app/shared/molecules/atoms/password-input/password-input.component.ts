@@ -3,7 +3,7 @@ import { PasswordInputDefaultConst } from './password-input-default.const';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-import { ActionSignature } from '../../../application/action.interface';
+import { ActionSignature } from '../../../application/action.signature';
 
 @Component({
   selector: 'app-password-input',

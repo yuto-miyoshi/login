@@ -1,3 +1,5 @@
+import { PasswordErrorCode } from '../../domain/password/password-error.definition';
+
 export namespace PasswordErrorDefaultConst {
   export const password = '';
 
@@ -9,7 +11,9 @@ export namespace PasswordErrorDefaultConst {
 
   export const actionInvalid = () => {};
 
-  export const validationFlow = (password: string) => true;
+  export const validationFlow = (_: string) => true;
 
   export const errorMessage = '';
+
+  export const errorJudge = () => PasswordErrorCode.noError;
 }

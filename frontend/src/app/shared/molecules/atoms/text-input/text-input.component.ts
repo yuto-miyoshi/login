@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TextInputDefaultConst } from './text-input-default.const';
-import { ActionSignature } from '../../../application/action.interface';
+import { ActionSignature } from '../../../application/action.signature';
 
 @Component({
   selector: 'app-text-input',
