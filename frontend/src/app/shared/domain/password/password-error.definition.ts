@@ -3,11 +3,12 @@ import { PasswordDomainConst } from './password-domain.const';
 
 export const PasswordErrorCode = {
   noError: 0,
-  tooShort: 1,
-  tooLong: 2,
-  forbiddenCharacter: 3,
-  atLeastOneAlphOneNumber: 4,
-  mismatch: 5,
+  noInput: 1,
+  tooShort: 2,
+  tooLong: 3,
+  forbiddenCharacter: 4,
+  atLeastOneAlphOneNumber: 5,
+  mismatch: 6,
 } as const;
 export type PasswordErrorCode =
   (typeof PasswordErrorCode)[keyof typeof PasswordErrorCode];
@@ -20,6 +21,11 @@ export const passwordErrorDefinitionDictonary: readonly ErrorDefinition<
     code: PasswordErrorCode.noError,
     logic: (_: string) => false,
     message: '',
+  },
+  {
+    code: PasswordErrorCode.noInput,
+    logic: (password: string) => password.length === 0,
+    message: 'Required.',
   },
   {
     code: PasswordErrorCode.tooShort,
@@ -60,5 +66,5 @@ export const passwordErrorDefinitionDictonary: readonly ErrorDefinition<
 ] as const;
 
 export const generatePasswordMismatchLogic = (password0: string) => {
-  (password1: string) => password0 === password1;
+  return (password1: string) => password0 === password1;
 };
