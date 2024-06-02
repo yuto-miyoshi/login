@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { PasswordErrorComponent } from '../shared/molecules/password-error/password-error.component';
+import { PasswordMatchComponent } from './password-match/password-match.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [PasswordErrorComponent],
+  imports: [PasswordMatchComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
