@@ -12,7 +12,7 @@ export const PasswordErrorCode = {
 export type PasswordErrorCode =
   (typeof PasswordErrorCode)[keyof typeof PasswordErrorCode];
 
-export const passwordErrorDefinitionDictonary: ErrorDefinition<
+export const passwordErrorDefinitionDictonary: readonly ErrorDefinition<
   PasswordErrorCode,
   string
 >[] = [
