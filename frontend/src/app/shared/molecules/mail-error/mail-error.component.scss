@@ -1,0 +1,18 @@
+$error-height: 40px;
+$error-side-margin: 5px;
+
+:host {
+  width: 100%;
+}
+
+.error-message {
+  /** self skeleton */
+  height: $error-height;
+  display: block;
+  margin: 0 $error-side-margin;
+
+  /** self design */
+  color: red;
+  font-size: 0.8rem;
+  overflow-wrap: break-word;
+}
