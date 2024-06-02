@@ -1,3 +1,3 @@
 export namespace SignupDefaultConst {
-  export const title = { text: 'Sing Up' };
+  export const title = { text: 'Sign Up' };
 }
