@@ -19,7 +19,7 @@ export class PasswordInputComponent {
    */
   @Input() password: StringData = PasswordInputDefaultConst.password;
 
-  @Input() title = PasswordInputDefaultConst.title;
+  @Input() title: StringData = PasswordInputDefaultConst.title;
 
   /**
    * Execute when charactor entered

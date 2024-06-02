@@ -1,7 +1,7 @@
 export namespace PasswordInputDefaultConst {
   export const password = { text: '' };
 
-  export const title = 'Password';
+  export const title = { text: 'Password' };
 
   export const actionInput = () => {};
 

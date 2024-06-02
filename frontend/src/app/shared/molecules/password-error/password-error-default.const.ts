@@ -3,6 +3,8 @@ import { PasswordErrorCode } from '../../domain/password/password-error.definiti
 export namespace PasswordErrorDefaultConst {
   export const password = { text: '' };
 
+  export const title = { text: 'Password' };
+
   export const actionInput = () => {};
 
   export const actionFocus = () => {};

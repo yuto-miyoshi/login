@@ -23,8 +23,12 @@ export class NewPasswordConfirmationComponent {
   @Input() actionIfError: JudgeReactionSignature =
     NewPasswordConfirmationDefaultConst.actionIfError;
 
+  readonly title = NewPasswordConfirmationDefaultConst.title;
+
   passwordConfirm: StringData =
     NewPasswordConfirmationDefaultConst.passwordConfirm;
+
+  readonly titleConfirm = NewPasswordConfirmationDefaultConst.titleConfirm;
 
   errorDetector = new ErrorDetector(defList, Code.noError);
 

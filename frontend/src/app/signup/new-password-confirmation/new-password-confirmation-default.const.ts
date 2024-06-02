@@ -3,6 +3,10 @@ export namespace NewPasswordConfirmationDefaultConst {
 
   export const passwordConfirm = { text: '' };
 
+  export const title = { text: 'Password' };
+
+  export const titleConfirm = { text: 'Confirm Password' };
+
   export const actionInput = () => {};
 
   export const actionIfError = (_: boolean) => {};

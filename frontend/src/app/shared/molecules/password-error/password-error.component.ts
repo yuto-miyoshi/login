@@ -24,6 +24,8 @@ export class PasswordErrorComponent {
    */
   @Input() password: StringData = PasswordErrorDefaultConst.password;
 
+  @Input() title: StringData = PasswordErrorDefaultConst.title;
+
   /**
    * Execute when charactor entered
    */
