@@ -1,6 +1,6 @@
 /**
- * T: error code enum which identifies error kinds
- * S: target value type
+ * @type T: error code enum which identifies error kinds
+ * @type S: target value type
  */
 export interface ErrorDefinition<T, S> {
   /**
