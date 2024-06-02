@@ -11,6 +11,7 @@ import { PasswordErrorJudgeSignature } from '../../application/error-judge.signa
 import { StringData } from '../../domain/string-data.interface';
 import { JudgeReactionSignature } from '../../application/judge-reaction.signature';
 
+// TODO: REFACTOR wrong comments
 @Component({
   selector: 'app-password-error',
   standalone: true,
@@ -56,15 +57,15 @@ export class PasswordErrorComponent {
   /**
    * current error status
    */
-  private currentStatus: PasswordErrorCode = PasswordErrorCode.noError;
+  private status: PasswordErrorCode = PasswordErrorCode.noError;
 
   get isError(): boolean {
-    return this.currentStatus !== PasswordErrorCode.noError;
+    return this.status !== PasswordErrorCode.noError;
   }
 
   get errorMessage(): string {
     const errorDef = passwordErrorDefinitionDictonary.find(
-      (def) => def.code === this.currentStatus,
+      (def) => def.code === this.status,
     );
 
     if (ValueCheck.isUndefined(errorDef)) {
@@ -81,7 +82,7 @@ export class PasswordErrorComponent {
      * "actionIfError" is executed after judge.
      * "actionInput" is executed at final.
      */
-    this.currentStatus = this.errorJudge();
+    this.status = this.errorJudge();
     this.actionIfError(this.isError);
     this.actionInput();
   };
