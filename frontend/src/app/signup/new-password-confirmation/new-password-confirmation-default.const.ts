@@ -1,5 +1,7 @@
 export namespace NewPasswordConfirmationDefaultConst {
-  export const password = '';
+  export const password = { text: '' };
+
+  export const passwordConfirm = { text: '' };
 
   export const actionInput = () => {};
 }

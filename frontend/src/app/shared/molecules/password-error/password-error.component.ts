@@ -8,6 +8,7 @@ import {
 } from '../../domain/password/password-error.definition';
 import { ValueCheck } from '../../value-security/value-check';
 import { PasswordErrorJudgeSignature } from '../../application/error-judge.signature';
+import { PasswordData } from '../../application/password-data';
 
 @Component({
   selector: 'app-password-error',
@@ -20,7 +21,7 @@ export class PasswordErrorComponent {
   /**
    * Input target
    */
-  @Input() password = PasswordErrorDefaultConst.password;
+  @Input() password: PasswordData = PasswordErrorDefaultConst.password;
 
   /**
    * Execute when charactor entered

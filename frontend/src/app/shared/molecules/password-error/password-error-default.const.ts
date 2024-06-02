@@ -1,7 +1,7 @@
 import { PasswordErrorCode } from '../../domain/password/password-error.definition';
 
 export namespace PasswordErrorDefaultConst {
-  export const password = '';
+  export const password = { text: '' };
 
   export const actionInput = () => {};
 

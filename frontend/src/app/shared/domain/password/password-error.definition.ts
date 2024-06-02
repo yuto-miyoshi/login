@@ -66,5 +66,5 @@ export const passwordErrorDefinitionDictonary: readonly ErrorDefinition<
 ] as const;
 
 export const generatePasswordMismatchLogic = (password0: string) => {
-  return (password1: string) => password0 === password1;
+  return (password1: string) => password0 !== password1;
 };
