@@ -12,11 +12,19 @@ export class ButtonComponent {
   @Input() message = ButtonDefaultConst.message;
 
   /**
+   * Block the interaction
+   */
+  @Input() disable = ButtonDefaultConst.disable;
+
+  /**
    * Execute when button is clicked
    */
   @Input() actionClick: ActionSignature = ButtonDefaultConst.actionClick;
 
   onClick(): void {
+    if (this.disable) {
+      return;
+    }
     this.actionClick();
   }
 }

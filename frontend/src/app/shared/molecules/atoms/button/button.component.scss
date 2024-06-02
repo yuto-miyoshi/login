@@ -4,17 +4,29 @@ button {
   height: 40px;
 
   /** self design */
-  border: 2px rgba(128, 128, 128, 1) solid;
+  border: 2px rgb(48, 41, 242) solid;
   border-radius: 4px;
   background-color: transparent;
-  color: rgba(64, 64, 64, 1);
+  color: rgb(48, 41, 242);
 
-  transition: 0.5s;
+  transition: 0.25s;
 }
 
 button:hover {
   /** self design */
-  border: 2px rgba(128, 128, 128, 0.5) solid;
-  color: rgba(64, 64, 64, 0.5);
+  opacity: 0.25;
   cursor: pointer;
+}
+
+.disable {
+  /** self design */
+  border: none;
+  background-color: rgb(128, 128, 128);
+  color: white;
+}
+
+.disable:hover {
+  /** self design */
+  opacity: 1;
+  cursor: auto;
 }
