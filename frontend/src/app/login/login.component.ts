@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { PasswordMatchComponent } from './password-match/password-match.component';
+import { NewPasswordConfirmationComponent } from '../signup/new-password-confirmation/new-password-confirmation.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [PasswordMatchComponent],
+  imports: [NewPasswordConfirmationComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
