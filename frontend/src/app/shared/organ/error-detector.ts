@@ -1,4 +1,4 @@
-import { ValueCheck } from '../application-security/value-check';
+import { ValueCheck } from '../value-security/value-check';
 import { ErrorDefinition } from '../domain-interface/error.interface';
 
 /**
