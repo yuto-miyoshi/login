@@ -24,7 +24,7 @@ export const passwordErrorDefinitionDictonary: readonly ErrorDefinition<
   },
   {
     code: PasswordErrorCode.noInput,
-    logic: (password: string) => password.length === 0,
+    logic: (password: string) => password.length <= 0,
     message: 'Required.',
   },
   {
