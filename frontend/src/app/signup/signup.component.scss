@@ -3,7 +3,16 @@
   height: 100vh;
 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.title {
+  /** self skeleton */
+  width: 100%;
+
+  /** self design */
+  font-size: 2rem;
+  line-height: 100px;
 }
