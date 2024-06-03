@@ -7,5 +7,5 @@ export namespace SignupDefaultConst {
 
   export const okButton = { text: 'Submit' };
 
-  export const ngButton = { text: 'Resolve Error' };
+  export const ngButton = { text: 'Resolve' };
 }
