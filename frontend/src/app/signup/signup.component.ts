@@ -53,7 +53,7 @@ export class SingupComponent {
     this.isErrorMail = judge;
   };
 
-  onErrorPassword: JudgeReactionSignature = (judge: boolean) => {
+  onReactJudgePassword: JudgeReactionSignature = (judge: boolean) => {
     this.isErrorPassword = judge;
   };
 
@@ -69,5 +69,10 @@ export class SingupComponent {
 
   onClickButton(): void {
     // TODO miyoshi: implements
+    if (this.isError) {
+      return;
+    }
+
+    console.log('work');
   }
 }

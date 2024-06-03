@@ -20,8 +20,8 @@ import { JudgeReactionSignature } from '../../shared/application/judge-reaction.
 export class NewPasswordConfirmationComponent {
   @Input() password: StringData = NewPasswordConfirmationDefaultConst.password;
 
-  @Input() actionIfError: JudgeReactionSignature =
-    NewPasswordConfirmationDefaultConst.actionIfError;
+  @Input() reactionJudge: JudgeReactionSignature =
+    NewPasswordConfirmationDefaultConst.reactionJudge;
 
   readonly title = NewPasswordConfirmationDefaultConst.title;
 
@@ -59,11 +59,11 @@ export class NewPasswordConfirmationComponent {
 
   onActionIfError = (isError: boolean) => {
     this.isErrorPassword = isError;
-    this.actionIfError(this.isErrorPassword || this.isErrorPasswordConfirm);
+    this.reactionJudge(this.isErrorPassword || this.isErrorPasswordConfirm);
   };
 
   onActionIfErrorConfirm = (isError: boolean) => {
     this.isErrorPasswordConfirm = isError;
-    this.actionIfError(this.isErrorPassword || this.isErrorPasswordConfirm);
+    this.reactionJudge(this.isErrorPassword || this.isErrorPasswordConfirm);
   };
 }

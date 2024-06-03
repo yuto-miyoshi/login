@@ -9,5 +9,5 @@ export namespace NewPasswordConfirmationDefaultConst {
 
   export const actionInput = () => {};
 
-  export const actionIfError = (_: boolean) => {};
+  export const reactionJudge = (_: boolean) => {};
 }
