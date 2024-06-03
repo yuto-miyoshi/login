@@ -30,9 +30,9 @@ export class SingupComponent {
 
   password: StringData = SignupDefaultConst.password;
 
-  private isErrorMail = false;
+  private isErrorMail = true;
 
-  private isErrorPassword = false;
+  private isErrorPassword = true;
 
   private errorDetectorMail = new ErrorDetector(defList, Code.noError);
 
