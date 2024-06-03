@@ -20,9 +20,9 @@ button:hover {
 
 .disable {
   /** self design */
-  border: none;
-  background-color: rgb(128, 128, 128);
-  color: white;
+  border: 2px rgb(128, 128, 128) solid;
+  background-color: transparent;
+  color: rgb(128, 128, 128);
 }
 
 .disable:hover {
