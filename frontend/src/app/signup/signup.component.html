@@ -1,7 +1,18 @@
 <span class="title">{{ title.text }}</span>
 
-<app-mail-error></app-mail-error>
+<app-mail-error
+  [mail]="mail"
+  [errorJudge]="errorJudgeMail"
+  [reactionJudge]="onReactJudgeMail"
+></app-mail-error>
 
-<app-new-password-confirmation></app-new-password-confirmation>
+<app-new-password-confirmation
+  [password]="password"
+  [actionIfError]="onErrorPassword"
+></app-new-password-confirmation>
 
-<app-button></app-button>
+<app-button
+  [message]="buttonMessage"
+  [disable]="isError"
+  [actionClick]="onClickButton"
+></app-button>
