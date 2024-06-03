@@ -1,3 +1,9 @@
-<app-text-input [text]="mail" [title]="title"></app-text-input>
+<app-text-input
+  [text]="mail"
+  [title]="title"
+  [actionInput]="onInput"
+  [actionFocus]="onFocus"
+  [actionBlur]="onBlur"
+></app-text-input>
 
 <span class="error-message">{{ errorMessage }}</span>
