@@ -47,7 +47,6 @@ export class PasswordInputComponent {
   isVisable = false;
 
   onInput(): void {
-    console.log(this.password);
     this.actionInput();
   }
 
