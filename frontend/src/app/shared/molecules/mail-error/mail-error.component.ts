@@ -38,48 +38,9 @@ export class MailErrorComponent {
    */
   @Input() actionBlur: ActionSignature = MailErrorDefaultConst.actionBlur;
 
-  /**
-   * Execute base on error judge result
-   */
-  @Input() reactionJudge: JudgeReactionSignature =
-    MailErrorDefaultConst.reactionJudge;
-
-  /**
-   * error judge logic (error code return method)
-   */
-  @Input() errorJudge: MailErrorJudgeSignature =
-    MailErrorDefaultConst.errorJudge;
-
-  /**
-   * current error status
-   */
-  private status: MailErrorCode = MailErrorCode.noError;
-
-  get isError(): boolean {
-    return this.status !== MailErrorCode.noError;
-  }
-
-  get errorMessage(): string {
-    const errorDef = mailErrorDefinitionDictionary.find(
-      (def) => def.code === this.status,
-    );
-
-    if (ValueCheck.isUndefined(errorDef)) {
-      // TODO: assert
-      return MailErrorDefaultConst.errorMessage;
-    }
-
-    return errorDef.message;
-  }
+  @Input() errorMessage: StringData = MailErrorDefaultConst.errorMessage;
 
   onInput = () => {
-    /**
-     * first of all, error is judged.
-     * "reactionJudge" is executed after judge.
-     * "actionInput" is executed at final.
-     */
-    this.status = this.errorJudge();
-    this.reactionJudge(this.isError);
     this.actionInput();
   };
 

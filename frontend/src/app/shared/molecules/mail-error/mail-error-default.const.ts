@@ -11,9 +11,5 @@ export namespace MailErrorDefaultConst {
 
   export const actionBlur = () => {};
 
-  export const reactionJudge = (_: boolean) => {};
-
-  export const errorJudge = () => MailErrorCode.noError;
-
-  export const errorMessage = '';
+  export const errorMessage = { text: '' };
 }
