@@ -11,11 +11,5 @@ export namespace PasswordErrorDefaultConst {
 
   export const actionBlur = () => {};
 
-  export const actionIfError = (_: boolean) => {};
-
-  export const validationFlow = (_: string) => true;
-
-  export const errorMessage = '';
-
-  export const errorJudge = () => PasswordErrorCode.noError;
+  export const errorMessage = { text: '' };
 }

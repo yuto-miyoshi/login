@@ -42,48 +42,9 @@ export class PasswordErrorComponent {
    */
   @Input() actionBlur: ActionSignature = PasswordErrorDefaultConst.actionBlur;
 
-  /**
-   * Execute when value is error
-   */
-  @Input() actionIfError: JudgeReactionSignature =
-    PasswordErrorDefaultConst.actionIfError;
-
-  /**
-   * Return error judge
-   */
-  @Input() errorJudge: PasswordErrorJudgeSignature =
-    PasswordErrorDefaultConst.errorJudge;
-
-  /**
-   * current error status
-   */
-  private status: PasswordErrorCode = PasswordErrorCode.noError;
-
-  get isError(): boolean {
-    return this.status !== PasswordErrorCode.noError;
-  }
-
-  get errorMessage(): string {
-    const errorDef = passwordErrorDefinitionDictonary.find(
-      (def) => def.code === this.status,
-    );
-
-    if (ValueCheck.isUndefined(errorDef)) {
-      // TODO: assert
-      return PasswordErrorDefaultConst.errorMessage;
-    }
-
-    return errorDef.message;
-  }
+  @Input() errorMessage: StringData = PasswordErrorDefaultConst.errorMessage;
 
   onInput = () => {
-    /**
-     * first of all, error is judged.
-     * "actionIfError" is executed after judge.
-     * "actionInput" is executed at final.
-     */
-    this.status = this.errorJudge();
-    this.actionIfError(this.isError);
     this.actionInput();
   };
 
