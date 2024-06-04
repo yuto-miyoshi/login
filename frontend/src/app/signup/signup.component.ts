@@ -76,7 +76,9 @@ export class SingupComponent {
   }
 
   get buttonMessage(): StringData {
-    return SignupDefaultConst.okButton;
+    return this.isError
+      ? SignupDefaultConst.ngButton
+      : SignupDefaultConst.okButton;
   }
 
   get isError(): boolean {
