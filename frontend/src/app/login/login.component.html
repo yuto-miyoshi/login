@@ -1,1 +1,23 @@
-<app-new-password-confirmation class="temp"></app-new-password-confirmation>
+<span class="title">{{ title.text }}</span>
+
+<app-mail-error
+  [title]="mailMessage"
+  [mail]="mail"
+  [errorMessage]="errorMessageMail"
+  [actionInput]="onInputMail"
+></app-mail-error>
+
+<app-password-error
+  [title]="passwordMessage"
+  [password]="password"
+  [errorMessage]="errorMessagePassword"
+  [actionInput]="onInputPassword"
+></app-password-error>
+
+<app-button
+  [disable]="isError"
+  [message]="buttonMessage"
+  [actionClick]="onClickButton"
+></app-button>
+
+<a href="/signup" class="link">Sing up</a>
