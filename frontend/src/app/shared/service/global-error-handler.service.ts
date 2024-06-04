@@ -15,7 +15,7 @@ export class GlobalErrorHandlerService implements ErrorHandler {
 
   handleError(error: any): void {
     this.zone.run(() => {
-      this.router.navigate(['/error'], { queryParams: { content: error } });
+      this.router.navigate(['error'], { queryParams: { content: error } });
     });
   }
 }

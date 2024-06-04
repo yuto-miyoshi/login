@@ -122,7 +122,7 @@ export class SingupComponent {
       return;
     }
 
-    console.log('entry');
+    throw new Error('a');
   };
 
   private get isErrorPassword(): boolean {
