@@ -5,6 +5,8 @@ export namespace SignupDefaultConst {
 
   export const password = { text: '' };
 
+  export const passwordConfirm = { text: '' };
+
   export const okButton = { text: 'Submit' };
 
   export const ngButton = { text: 'Resolve' };

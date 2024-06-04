@@ -1,15 +1,22 @@
 <span class="title">{{ title.text }}</span>
 
 <app-mail-error
-  [mail]="mail"
-  [errorJudge]="errorJudgeMail"
-  [reactionJudge]="onReactJudgeMail"
+  [mail]="value.mail"
+  [actionInput]="onInputMail"
+  [errorMessage]="errorMessageMail"
 ></app-mail-error>
 
-<app-new-password-confirmation
-  [password]="password"
-  [reactionJudge]="onReactJudgePassword"
-></app-new-password-confirmation>
+<app-password-error
+  [password]="value.password"
+  [actionInput]="onInputPassword"
+  [errorMessage]="errorMessagePassword"
+></app-password-error>
+
+<app-password-error
+  [password]="value.passwordConfirm"
+  [actionInput]="onInputPasswordConfirm"
+  [errorMessage]="errorMessagePasswordConfirm"
+></app-password-error>
 
 <app-button
   [message]="buttonMessage"
