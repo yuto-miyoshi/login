@@ -1,5 +1,9 @@
 <span class="title">{{ title.text }}</span>
 
+<span *ngIf="isLoginFail" class="login-fail-message">{{
+  loginFailMessage.text
+}}</span>
+
 <app-mail-error
   [title]="mailMessage"
   [mail]="mail"

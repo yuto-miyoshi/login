@@ -12,4 +12,10 @@ export namespace LoginDefaultConst {
   export const mail = { text: '' };
 
   export const password = { text: '' };
+
+  export const isLoginFail = false;
+
+  export const loginFailMessage = {
+    text: 'Login is rejected. Mail or Password is wrong.',
+  };
 }

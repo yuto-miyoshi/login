@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { ButtonComponent } from '../shared/molecules/atoms/button/button.component';
 import { StringData } from '../shared/domain/string-data.interface';
 import { LoginDefaultConst } from './login-default.const';
@@ -14,6 +14,10 @@ import { ErrorDetector } from '../shared/domain/tool/error-detector';
 import { MailErrorComponent } from '../shared/molecules/mail-error/mail-error.component';
 import { PasswordErrorComponent } from '../shared/molecules/password-error/password-error.component';
 import { ValueCheck } from '../shared/value-security/value-check';
+import { Subscription } from 'rxjs';
+import { LoginChallengeService } from './login-challenge.service';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 const errorDetector = {
   mail: new ErrorDetector(mailDefList, MailCode.noError),
@@ -23,11 +27,21 @@ const errorDetector = {
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [MailErrorComponent, PasswordErrorComponent, ButtonComponent],
+  imports: [
+    CommonModule,
+    MailErrorComponent,
+    PasswordErrorComponent,
+    ButtonComponent,
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
-export class LoginComponent {
+export class LoginComponent implements OnDestroy {
+  constructor(
+    private readonly loginChallengeService: LoginChallengeService,
+    private readonly router: Router,
+  ) {}
+
   readonly title: StringData = LoginDefaultConst.title;
 
   readonly mailMessage: StringData = LoginDefaultConst.mailMessage;
@@ -38,10 +52,21 @@ export class LoginComponent {
 
   password: StringData = LoginDefaultConst.password;
 
+  isLoginFail = LoginDefaultConst.isLoginFail;
+
+  readonly loginFailMessage = LoginDefaultConst.loginFailMessage;
+
+  // discard observers
+  private subscription = new Subscription();
+
   private status = {
     mail: MailCode.noError as MailCode,
     password: PasswordCode.noError as PasswordCode,
   };
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
   get isError(): boolean {
     if (this.status.mail !== MailCode.noError) {
@@ -95,7 +120,15 @@ export class LoginComponent {
       return;
     }
 
-    throw new Error('b');
+    this.subscription = this.loginChallengeService
+      .send(this.mail.text, this.password.text)
+      .subscribe((result: boolean) => {
+        if (result) {
+          this.router.navigate(['/statistics']);
+          return;
+        }
+        this.isLoginFail = true;
+      });
   };
 
   private updateStatusMail(): void {
