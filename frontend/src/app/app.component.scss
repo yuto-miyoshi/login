@@ -1,9 +1,39 @@
+$header-side-padding: 30px;
+
 :host {
+  /** self skeleton */
+  width: 100%;
+  height: 100vh;
+
+  /** skeleton for child */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.header {
+  /** self skeleton */
+  width: 100%;
+  height: 10vh;
+  // padding: 0 $header-side-padding;
+
+  /** self design */
+  background-color: gray;
+
+  /** skeleton for child */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  /** child */
+  > .title {
+    /** self design */
+    font-size: 2.5rem;
+  }
+}
+
 .content {
+  /** self skeleton */
   width: 420px;
+  height: 90vh;
 }
