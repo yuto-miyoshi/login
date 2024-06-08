@@ -1,7 +1,12 @@
-version: '3'
-
+version: "3"
 
 services:
+  frontend:
+    container_name: "frontend-container"
+    build: ./frontend
+    ports:
+      - 4200:4200
+
   backend:
     container_name: "backend-container"
     build: ./backend
@@ -25,7 +30,6 @@ services:
       - ./database/forDocker/db/initdb:/docker-entrypoint-initdb.d
 
 # volumes:これ正しく設定できてる？
-
 
 volumes:
   dbvol:
