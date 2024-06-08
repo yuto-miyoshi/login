@@ -124,7 +124,7 @@ export class LoginComponent implements OnDestroy {
       .send(this.mail.text, this.password.text)
       .subscribe((result: boolean) => {
         if (result) {
-          this.router.navigate(['/statistics']);
+          this.router.navigate(['/dashboard']);
           return;
         }
         this.isLoginFail = true;

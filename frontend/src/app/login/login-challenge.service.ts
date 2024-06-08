@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../shared/service/api.service';
-import { Observable, map } from 'rxjs';
+import { Observable, catchError, map, of } from 'rxjs';
 import { LoginChallenge } from './login-challenge.interface';
 
 @Injectable({
@@ -16,6 +16,9 @@ export class LoginChallengeService {
         LoginChallenge.Form
       >(LoginChallenge.key, { mail, password })
       .pipe(
+        catchError(() => {
+          return of({ success: false });
+        }),
         map((result) => {
           return result.success;
         }),
