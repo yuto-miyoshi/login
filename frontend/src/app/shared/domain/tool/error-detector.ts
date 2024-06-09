@@ -39,7 +39,7 @@ export class ErrorDetector<T, S> {
    * @returns detector after judge
    */
   filter(errorCode: T, pluginLogic?: (value: S) => boolean): this {
-    if (ValueCheck.isUndefined(this.value)) {
+    if (!ValueCheck.isNotUndefined(this.value)) {
       // TODO: assert
       return this;
     }
@@ -49,12 +49,12 @@ export class ErrorDetector<T, S> {
     }
 
     let logic = pluginLogic;
-    if (ValueCheck.isUndefined(logic)) {
+    if (!ValueCheck.isNotUndefined(logic)) {
       const def = this.defList.find(
         (def: ErrorDefinition<T, S>) => def.code === errorCode,
       );
 
-      if (ValueCheck.isUndefined(def)) {
+      if (!ValueCheck.isNotUndefined(def)) {
         // TODO: Assert
         return this;
       }

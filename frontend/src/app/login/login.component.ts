@@ -84,7 +84,7 @@ export class LoginComponent implements OnDestroy {
   get errorMessageMail(): StringData {
     let text = '';
     const def = mailDefList.find((def) => def.code === this.status.mail);
-    if (!ValueCheck.isUndefined(def)) {
+    if (ValueCheck.isNotUndefined(def)) {
       text = def.message;
     }
     return { text };
@@ -93,7 +93,7 @@ export class LoginComponent implements OnDestroy {
   get errorMessagePassword(): StringData {
     let text = '';
     const def = mailDefList.find((def) => def.code === this.status.password);
-    if (!ValueCheck.isUndefined(def)) {
+    if (ValueCheck.isNotUndefined(def)) {
       text = def.message;
     }
     return { text };

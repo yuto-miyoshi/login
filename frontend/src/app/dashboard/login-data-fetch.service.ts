@@ -18,7 +18,7 @@ export class LoginDataFetchService {
 
   fetch(): Observable<void> {
     const mail = sessionStorage.getItem(SessionStorageKeyConst.mail);
-    if (ValueCheck.isNull(mail)) {
+    if (!ValueCheck.isNotNull(mail)) {
       // TODO miyoshi: assert
       return of();
     }
@@ -28,7 +28,7 @@ export class LoginDataFetchService {
         map((result) => {
           this.loginDataStoreService.data = result.list
             .map(DateConvert.fromISO8601ToDate)
-            .filter((data) => !ValueCheck.isNull(data));
+            .filter(ValueCheck.isNotNull);
         }),
       );
   }

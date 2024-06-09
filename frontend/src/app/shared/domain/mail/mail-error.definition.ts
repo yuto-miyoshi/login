@@ -57,7 +57,7 @@ export const mailErrorDefinitionDictionary: readonly ErrorDefinition<
         return true;
       }
       const tld = mail.split('@')[1].split('.').pop();
-      if (ValueCheck.isUndefined(tld)) {
+      if (!ValueCheck.isNotUndefined(tld)) {
         return true;
       }
       return (

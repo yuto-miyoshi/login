@@ -47,7 +47,7 @@ export class SingupComponent {
   get errorMessageMail(): StringData {
     let text = '';
     const def = mailDefList.find((def) => def.code === this.status.mail);
-    if (!ValueCheck.isUndefined(def)) {
+    if (ValueCheck.isNotUndefined(def)) {
       text = def.message;
     }
     return { text };
@@ -58,7 +58,7 @@ export class SingupComponent {
     const def = passwordDefList.find(
       (def) => def.code === this.status.password,
     );
-    if (!ValueCheck.isUndefined(def)) {
+    if (ValueCheck.isNotUndefined(def)) {
       text = def.message;
     }
     return { text };
@@ -69,7 +69,7 @@ export class SingupComponent {
     const def = passwordDefList.find(
       (def) => def.code === this.status.passwordConfirm,
     );
-    if (!ValueCheck.isUndefined(def)) {
+    if (ValueCheck.isNotUndefined(def)) {
       text = def.message;
     }
     return { text };

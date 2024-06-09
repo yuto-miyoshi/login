@@ -1,9 +1,9 @@
 export namespace ValueCheck {
-  export const isUndefined = (value: unknown): value is undefined => {
-    return value === undefined;
+  export const isNotUndefined = <T>(value: T | undefined): value is T => {
+    return value !== undefined;
   };
 
-  export const isNull = (value: unknown): value is null => {
-    return value === null;
+  export const isNotNull = <T>(value: T | null): value is T => {
+    return value !== null;
   };
 }
