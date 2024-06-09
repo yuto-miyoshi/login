@@ -26,9 +26,10 @@ export class LoginDataFetchService {
       .execute<LoginData.Result, LoginData.Form>(LoginData.key, { mail })
       .pipe(
         map((result) => {
-          this.loginDataStoreService.data = result.list
+          const data = result.list
             .map(DateConvert.fromISO8601ToDate)
             .filter(ValueCheck.isNotNull);
+          this.loginDataStoreService.update(data);
         }),
       );
   }
