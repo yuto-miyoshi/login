@@ -18,6 +18,7 @@ import { Subscription } from 'rxjs';
 import { LoginChallengeService } from './login-challenge.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { SessionStorageKeyConst } from '../infrastructure/session-storage-key.const';
 
 const errorDetector = {
   mail: new ErrorDetector(mailDefList, MailCode.noError),
@@ -124,6 +125,7 @@ export class LoginComponent implements OnDestroy {
       .send(this.mail.text, this.password.text)
       .subscribe((result: boolean) => {
         if (result) {
+          sessionStorage.setItem(SessionStorageKeyConst.mail, this.mail.text);
           this.router.navigate(['/dashboard']);
           return;
         }
