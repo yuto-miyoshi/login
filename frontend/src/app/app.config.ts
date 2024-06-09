@@ -8,7 +8,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { GlobalErrorHandlerService } from './shared/except-page/global-error-handler.service';
+import { GlobalErrorHandlerService } from './shared/exceptional/global-error-handler.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
