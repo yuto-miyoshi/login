@@ -16,10 +16,18 @@ public class LoginChallengeController {
     @Autowired
     LoginChallengeService loginChallengeService;
 
+    @Autowired
+    LoginRecordService loginRecordService;
+
     @CrossOrigin
     @PostMapping("/login")
-    public ResponseEntity<LoginChallengeResult> loginChallenge(@RequestBody LoginChallenge challenge) {
-        LoginChallengeResult result = this.loginChallengeService.authenticate(challenge);
+    public ResponseEntity<LoginChallengeResult> loginChallenge(@RequestBody LoginChallenge form) {
+        LoginChallengeResult result = this.loginChallengeService.authenticate(form);
+
+        if (result.success) {
+            this.loginRecordService.record(form);
+        }
+
         return ResponseEntity.ok(result);
     }
 
