@@ -1,5 +1,6 @@
 package com.login.backend;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,13 +13,13 @@ import com.login.backend.model.LoginChallengeResult;
 @RestController
 public class LoginChallengeController {
 
+    @Autowired
+    LoginChallengeService loginChallengeService;
+
     @CrossOrigin
     @PostMapping("/login")
-    public ResponseEntity<LoginChallengeResult> judge(@RequestBody LoginChallenge challenge) {
-        System.out.println(challenge.mail);
-        System.out.println(challenge.password);
-        LoginChallengeResult result = new LoginChallengeResult();
-        result.success = true;
+    public ResponseEntity<LoginChallengeResult> loginChallenge(@RequestBody LoginChallenge challenge) {
+        LoginChallengeResult result = this.loginChallengeService.authenticate(challenge);
         return ResponseEntity.ok(result);
     }
 
