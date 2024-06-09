@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../shared/service/api.service';
 import { Observable, map, of } from 'rxjs';
-import { LoginData } from './login-data.interface';
+import { LoginData } from '../infrastructure/login-data.interface';
 import { SessionStorageKeyConst } from '../infrastructure/session-storage-key.const';
 import { ValueCheck } from '../shared/value-security/value-check';
 import { LoginDataStoreService } from './login-data-store.service';
