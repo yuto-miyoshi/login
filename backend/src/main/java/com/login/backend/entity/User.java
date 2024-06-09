@@ -29,6 +29,10 @@ public class User {
     @Column(nullable=true)
     private List<LoginTime> loginTimes;
 
+    public long getId() {
+        return this.id;
+    }
+
     public String getMail() {
         return this.mail;
     }

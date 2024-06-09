@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
@@ -15,7 +16,8 @@ import jakarta.persistence.Table;
 public class LoginTime {
     
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="login_time_id_generator")
+    @SequenceGenerator(name = "login_time_id_generator", sequenceName = "login_time_id_seq", allocationSize = 1)
     @Column
     private long id;
 
@@ -27,10 +29,6 @@ public class LoginTime {
 
     public long getId() {
         return this.id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public LocalDateTime getLoginTime() {
