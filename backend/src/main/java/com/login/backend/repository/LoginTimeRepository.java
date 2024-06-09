@@ -13,6 +13,6 @@ import com.login.backend.entity.LoginTime;
 public interface LoginTimeRepository extends JpaRepository<LoginTime, Long> {
 
     @Query(value="select * from login_time where user_id = (select user_id from users where mail = :mail)", nativeQuery=true)
-    public List<LoginTime> loginRecords(@Param("mail") String mail);
-    
+    public List<LoginTime> loginHistory(@Param("mail") String mail);
+
 }
