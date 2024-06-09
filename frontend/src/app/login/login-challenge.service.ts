@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from '../shared/service/api.service';
+import { ApiService } from '../shared/infrastructure/api.service';
 import { Observable, catchError, map, of } from 'rxjs';
-import { LoginChallenge } from '../infrastructure/login-challenge.interface';
+import { LoginChallenge } from '../shared/infrastructure/login-challenge.interface';
 
 @Injectable({
   providedIn: 'root',

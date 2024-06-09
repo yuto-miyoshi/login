@@ -18,7 +18,7 @@ import { Subscription } from 'rxjs';
 import { LoginChallengeService } from './login-challenge.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { SessionStorageKeyConst } from '../infrastructure/session-storage-key.const';
+import { SessionStorageKeyConst } from '../shared/infrastructure/session-storage-key.const';
 
 const errorDetector = {
   mail: new ErrorDetector(mailDefList, MailCode.noError),
