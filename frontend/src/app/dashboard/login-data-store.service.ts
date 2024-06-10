@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { sortDate } from './sort-date.logic';
+import { DateLabeled, sortDate } from './sort-date.logic';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginDataStoreService {
-  private data: Date[][] = [];
+  private data: DateLabeled[] = [];
 
-  get loginData(): Date[][] {
+  get loginData(): DateLabeled[] {
     return this.data;
   }
 
