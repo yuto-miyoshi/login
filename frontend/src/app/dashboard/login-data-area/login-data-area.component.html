@@ -1,3 +1,5 @@
-<ng-container
-  *ngFor="let dayData of loginDataStoreService.loginData"
-></ng-container>
+<ng-container *ngFor="let dayData of loginDataStoreService.loginData">
+  <div class="data-box" [style.background]="dataColor(dayData.data)">
+    {{ dayData.label }}
+  </div>
+</ng-container>

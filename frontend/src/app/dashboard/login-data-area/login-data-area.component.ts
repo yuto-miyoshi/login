@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { LoginDataStoreService } from '../login-data-store.service';
 
 @Component({
@@ -11,4 +11,20 @@ import { LoginDataStoreService } from '../login-data-store.service';
 })
 export class LoginDataAreaComponent {
   constructor(readonly loginDataStoreService: LoginDataStoreService) {}
+
+  public dataColor(data: Date[]): string {
+    if (data.length > 10) {
+      return 'rgba(64, 64, 64, 0.5)';
+    }
+
+    if (data.length > 5) {
+      return 'rgba(64, 64, 64, 0.25)';
+    }
+
+    if (data.length > 1) {
+      return 'rgba(64, 64, 64, 0.125)';
+    }
+
+    return 'rgba(64, 64, 64, 0)';
+  }
 }
